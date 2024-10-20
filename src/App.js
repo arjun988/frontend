@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './pages/Home';
+import PostDetails from './pages/PostDetails';
+import PostForm from './components/PostForm';
+
+const styles = {
+  app: {
+    fontFamily: "'Inter', sans-serif",
+    backgroundColor: '#f8f9fa',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  main: {
+    flex: 1,
+    maxWidth: '1200px',
+    margin: '0 auto',
+    padding: '2rem',
+    width: '100%',
+  }
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div style={styles.app}>
+        <Header />
+        <main style={styles.main}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/create" element={<PostForm />} />
+            <Route path="/edit/:id" element={<PostForm />} />
+            <Route path="/post/:id" element={<PostDetails />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
