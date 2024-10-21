@@ -70,9 +70,9 @@ const PostForm = ({ post }) => {
     e.preventDefault();
     try {
       if (post) {
-        await axios.put(`http://localhost:5000/posts/${post.id}`, { title, content });
+        await axios.put(`http://13.232.240.179:5000/posts/${post.id}`, { title, content });
       } else {
-        await axios.post('http://localhost:5000/posts', { title, content });
+        await axios.post('http://13.232.240.179:5000/posts', { title, content });
       }
       navigate('/');
     } catch (error) {

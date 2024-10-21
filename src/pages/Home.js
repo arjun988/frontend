@@ -37,7 +37,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/posts');
+        const response = await axios.get('http://13.232.240.179:5000/posts');
         setPosts(response.data);
       } catch (error) {
         console.error('Error fetching posts:', error);

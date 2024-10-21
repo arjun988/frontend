@@ -84,7 +84,7 @@ const Post = ({ post }) => {
 
   const handleLike = async () => {
     try {
-      await axios.post(`http://localhost:5000/posts/${post.id}/like`);
+      await axios.post(`http://13.232.240.179:5000/posts/${post.id}/like`);
       setLikes(likes + 1);
     } catch (error) {
       console.error('Error liking post:', error);
@@ -95,7 +95,7 @@ const Post = ({ post }) => {
     e.preventDefault();
     try {
       const newComment = { content: comment };
-      await axios.post(`http://localhost:5000/posts/${post.id}/comments`, newComment);
+      await axios.post(`http://13.232.240.179:5000/posts/${post.id}/comments`, newComment);
       setComments([...comments, newComment]);
       setComment('');
     } catch (error) {
